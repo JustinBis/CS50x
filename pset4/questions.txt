@@ -1,0 +1,19 @@
+0.  BMP supports up to 64bit color, though 24bit is the most common, allowing 16,777,216 different colors. GIF is limited to just 256 colors but supports transparency. JPEG supports 24bit color, so they can display 16,777,216 different colors. PNG images are usually 24 bits per pixel, giving them the same color range as GIFs and JPEGs, though PNGs also support transparency and can sometimes be found with 48bit color.
+1.  GIF has the widest animation support, though PNG and JPEG do have their own animation formats as well (APNG and MJPEG, respectively).
+2.  Lossless compression means that no information is lost or compromised during compression, so the image looks exactly the same and can be saved any number of times without degredation. Lossy compression means that some information was thrown away or compromised in order to save space.
+3.  JPEGs are lossy, while BMPs, GIFs, and PNGs are lossless.
+4.  When a file is deleted on a FAT system, the operating system changes the first character of the filename to mark it as deleted so that it's listing in the file directory can be recycled and the operating system adds the FAT clusters the file is stored on to the list of free clusters that can be overwritten with new data.
+5.  Simply use one of the many freely available sanitization tools (listed in Table 4 in the article) to overwrite data with 0s or random patterns that would make forensic analysis and data recovery extremely difficult.
+6.  stdint.h is a header file that contains typedef definitions for more exact integer types that have a fixed size.
+7.  Using these allows numbers to be stored consistantly in exact types, whereas just using "int" would store the number in a different size variable depending on the system (16bit vs 32bit vs 64bit).
+8.  A BYTE is 1 byte, a DWORD is 4 bytes, a LONG is 4 bytes, and a WORD is 2 bytes (on a 32-bit system).
+9.  The first two bytes must be "BM" in ASCII, which is "42 4D" in hexadecimal.
+10. bfSize is the total size, in bytes, of the bitmap file, whereas biSize is the size of the BITMAPINFOHEADER struct in bytes.
+11. if "biHeight" is negative, that means the bitmap image is drawn top-down, with the origin at the top left corner.
+12. biBitCount
+13. fopen will return NULL anytime a file can't be opened. In this case, there might not be enough free space to start writing to a new file or the system encountered some other error creating the file.
+14. The third arguement is always 1 because we are only reading in a single object at a time.
+15. 3
+16. fseek advances the given file pointer by the amount in the second argument, starting at the location given by the third argument. In copy.c, fseek is used to skip over the padding by advancing the file pointer by (padding)-number of bytes from the current position.
+17. SEEK_CUR is the current location that the file pointer is pointing to.
+18. It was Fozzie Bear in the CS50 Appliance with the candlestick!
